@@ -1,1 +1,1 @@
-# javascriptk-c-kprojeler
+# javascriptkucukprojeler
