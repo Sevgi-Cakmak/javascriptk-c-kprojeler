@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>En Küçük Sayiyi Kirmizi Yazdirma</title>
+</head>
+<body>
+    <h1>En Küçük Sayiyi Kirmizi Yazdirma</h1>
+    <form>
+        <label for="numbers">10 sayi girin: </label><br>
+        <input type="text" id="numbers" name="numbers"><br>
+        <input type="button" value="Gönder" onclick="MiniBulVeYazdir()">
+    </form>
+    <p id="result"></p>
+
+
+
+    <script>
+        function MiniBulVeYazdir() {
+            var inputNumbers = document.getElementById("numbers").value;
+            var numbersArray = inputNumbers.split(",");
+            var minNumber = Infinity;
+    
+            for (var i = 0; i < numbersArray.length; i++) {
+                var currentNumber = parseFloat(numbersArray[i]);
+                if (!isNaN(currentNumber)) {
+                    if (currentNumber < minNumber) {
+                        minNumber = currentNumber;
+                    }
+                }
+            }
+    
+            var resultElement = document.getElementById("result");
+            resultElement.innerHTML = "Girilen Sayilar: " + numbersArray.join(",") + "<br>";
+    
+
+            for (var i = 0; i < numbersArray.length; i++) {
+                if (parseFloat(numbersArray[i]) === minNumber) {
+                    resultElement.innerHTML += "<br>En Küçük Sayi:  <span style='color:red'>" + minNumber + "</span>";
+                    break;
+                } 
+            }
+        }
+    </script>
+</body>
+</html>
+
+

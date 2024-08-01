@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>İsimleri girin: </p>
+    <input type="text" name="isimler" id="isimlerInput">
+    <button onclick="siralamaYap()">Sirala</button>
+    <ul id="siralananIsimler"></ul>
+
+<script>
+function siralamaYap() {
+    var isimlerInput = document.getElementById("isimlerInput");
+  var isimler = isimlerInput.value;
+
+
+  isimler = isimler.split(",").map(function(isim) {
+    return isim.trim();
+  });
+
+  isimler = isimler.filter(function(isim){
+    return isim !== "";
+  });
+
+  isimler.sort();
+
+  var siralananIsimler = document.getElementById("siralananIsimler");
+  siralananIsimler.innerHTML = "";
+  for (var i = 0; i < isimler.length; i++) {
+    var li = document.createElement("li");
+    li.textContent = isimler[i];
+    siralananIsimler.appendChild(li);
+  }
+}
+
+ 
+
+
+
+
+
+
+
+
+
+</script>
+</html>
